@@ -13,3 +13,11 @@ syscall = b.get_syscall_fnname("execve")
 b.attach_kprobe(event=syscall, fn_name="hello")
 
 b.trace_print()
+
+
+
+
+
+
+///test_mmap.c
+watch -n0.1 --no-title ps -o min_flt,maj_flt,cmd 4898
