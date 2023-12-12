@@ -6,6 +6,7 @@
  #include <sys/mman.h>
  #define BUFFER_SIZE 256
  int main(){
+         sleep(30);
          int fd;
           void *buffer = malloc(BUFFER_SIZE);
           if(buffer == NULL){
@@ -44,7 +45,6 @@
          if(MAP_FAILED == addr){
                  return 0;
          }
-         sleep(30);
          for(int i=0;i<15;i++){
                  *(addr+i) = 'b';
                  sleep(5);
