@@ -18,6 +18,27 @@ int main(){
 	
 	printf("a is %d\n",a);
 	itoc(0xffffffff80000000);
+
+	printf("now for testing....\n");
+
+	unsigned long load_physical_addr = 0x1000000;
+	unsigned long start_kernel_map = 0xffffffff80000000;
+
+	unsigned long output = 201326592;
+	unsigned long virt_addr = 452984832;
+	unsigned long delta = virt_addr - load_physical_addr;
+	unsigned long _text = start_kernel_map +load_physical_addr + delta;
+	unsigned long load_delta = output - (_text - start_kernel_map);
+	printf("virt_addr delta is %#lx\n",delta);
+	printf("virt_addr delta is %lu\n",delta);
+	printf("load delta is %#lx\n",load_delta);
+	printf("load delta is %lu\n",load_delta);
+
+	unsigned long orig_addr = 42025063;
+	printf("virt_delta 0x2814067 is %lu\n",orig_addr + delta);
+	printf("final of 0x2814067 is %lu\n",orig_addr + delta + load_delta);
+	printf("final of 0x2814067 is %#lx\n",orig_addr + delta + load_delta);
+
 }
 void itoc(unsigned long n){
 	char s[100] = {0};
