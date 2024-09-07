@@ -39,6 +39,12 @@ int main(){
 	printf("final of 0x2814067 is %lu\n",orig_addr + delta + load_delta);
 	printf("final of 0x2814067 is %#lx\n",orig_addr + delta + load_delta);
 
+	printf("----------------------\n");
+	unsigned long foo = 882900992;
+	printf("foo before - map is  %#lx\n",foo);
+	foo = foo - start_kernel_map;
+	printf("foo is %#lx\n",foo);
+
 }
 void itoc(unsigned long n){
 	char s[100] = {0};
